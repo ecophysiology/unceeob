@@ -16,7 +16,7 @@
         curve: "basis",
         htmlLabels: true,
         nodeSpacing: 70,
-        rankSpacing: 90
+        rankSpacing: 95
       }
     });
   </script>
@@ -44,79 +44,45 @@
         <div class="mermaid">
 flowchart TD
 
-%% ---------------- Core pathway ----------------
 A["Gateway<br/><b>BIOL 101 &amp; 101L</b><br/>Principles of Biology + Intro Lab"]
 
 B["Fundamentals Core<br/><b>BIOL 103</b> How Cells Function<br/><b>BIOL 104</b> Biodiversity<br/><b>BIOL 105L</b> Biological Research Skills"]
 
 C["Intermediate EEOB Core (choose 2)<br/><b>BIOL 250</b> Evolutionary Biology<br/><b>BIOL 260</b> Introduction to Ecology<br/><b>+ Organismal Structure &amp; Diversity course</b>"]
 
-D["<b>Upper-level coursework</b><br/><br/><b>4 electives &gt; 200</b><br/><b>At least 2 with labs</b>"]:::big
+D["<div class='bigbox'>
+  <div class='bigbox-title'>Upper-level coursework</div>
+  <div class='bigbox-sub'><b>4 electives &gt; 200</b> • <b>At least 2 with labs</b></div>
+  <div class='bigbox-grid'>
+    <div>
+      <b>BIOL 214H</b> Mathematics of Evolutionary Processes<br/>
+      <b>BIOL 255H</b> Evolution of Extraordinary Adaptations<br/>
+      <b>BIOL 405</b> Good Genes<br/>
+      <b>BIOL 422</b> Microbiology<br/>
+      <b>BIOL 446</b> Environmental Microbiology<br/>
+      <b>BIOL 451</b> Ecological &amp; Evolutionary Developmental Biology<br/>
+      <b>BIOL 454</b> Evolutionary Genetics<br/>
+      <b>BIOL 464</b> Global Change Biology
+    </div>
+    <div>
+      <b>BIOL 465</b> Population Ecology<br/>
+      <b>BIOL 471</b> Evolutionary Processes<br/>
+      <b>BIOL 476</b> Global Biodiversity and Macroecology<br/>
+      <b>BIOL 490</b> Disease Ecology<br/>
+      <b>BIOL 514H</b> Comparative Physiology<br/>
+      <b>BIOL 553</b> Mathematical Biology<br/>
+      <b>BIOL 564</b> Avian Biology
+    </div>
+  </div>
+</div>"]:::big
 
 A --> B --> C --> D
 
-%% ---------------- Courses (2-column grid, no visible connectors) ----------------
-%% One arrow from D into the grid:
-D --> R1C1
-
-%% Column 1 / Column 2
-R1C1["<b>BIOL 214H</b><br/>Mathematics of Evolutionary Processes"]
-R1C2["<b>BIOL 255H</b><br/>Evolution of Extraordinary Adaptations"]
-
-R2C1["<b>BIOL 405</b><br/>Good Genes"]
-R2C2["<b>BIOL 422</b><br/>Microbiology"]
-
-R3C1["<b>BIOL 446</b><br/>Environmental Microbiology"]
-R3C2["<b>BIOL 451</b><br/>Ecological &amp; Evolutionary Developmental Biology"]
-
-R4C1["<b>BIOL 454</b><br/>Evolutionary Genetics"]
-R4C2["<b>BIOL 464</b><br/>Global Change Biology"]
-
-R5C1["<b>BIOL 465</b><br/>Population Ecology"]
-R5C2["<b>BIOL 471</b><br/>Evolutionary Processes"]
-
-R6C1["<b>BIOL 476</b><br/>Global Biodiversity and Macroecology"]
-R6C2["<b>BIOL 490</b><br/>Disease Ecology"]
-
-R7C1["<b>BIOL 514H</b><br/>Comparative Physiology"]
-R7C2["<b>BIOL 553</b><br/>Mathematical Biology"]
-
-R8C1["<b>BIOL 564</b><br/>Avian Biology"]
-R8C2[" "]:::blank
-
-%% --- Layout helper links (invisible) ---
-%% These ONLY force a 2-column grid; we hide them with linkStyle default below.
-R1C1 --- R1C2
-R2C1 --- R2C2
-R3C1 --- R3C2
-R4C1 --- R4C2
-R5C1 --- R5C2
-R6C1 --- R6C2
-R7C1 --- R7C2
-R8C1 --- R8C2
-
-R1C1 --- R2C1 --- R3C1 --- R4C1 --- R5C1 --- R6C1 --- R7C1 --- R8C1
-R1C2 --- R2C2 --- R3C2 --- R4C2 --- R5C2 --- R6C2 --- R7C2 --- R8C2
-
-%% ---------------- Styling ----------------
 classDef box fill:#ffffff,stroke:#111,stroke-width:1px,rx:12,ry:12;
-classDef big fill:#ffffff,stroke:#111,stroke-width:1.5px,rx:16,ry:16,font-size:18px;
-classDef blank fill:transparent,stroke:transparent,color:transparent;
+classDef big fill:#ffffff,stroke:#111,stroke-width:1.6px,rx:18,ry:18;
 
-class A,B,C,R1C1,R1C2,R2C1,R2C2,R3C1,R3C2,R4C1,R4C2,R5C1,R5C2,R6C1,R6C2,R7C1,R7C2,R8C1 box;
+class A,B,C box;
 class D big;
-class R8C2 blank;
-
-%% Hide ALL links by default (including helper links)
-linkStyle default stroke:transparent,stroke-width:0px;
-
-%% Re-enable ONLY the real pathway links + the single arrow into the grid
-%% Link order here:
-%% 0: A->B, 1: B->C, 2: C->D, 3: D->R1C1
-linkStyle 0 stroke:#111,stroke-width:1px;
-linkStyle 1 stroke:#111,stroke-width:1px;
-linkStyle 2 stroke:#111,stroke-width:1px;
-linkStyle 3 stroke:#111,stroke-width:1px;
         </div>
       </div>
     </section>
