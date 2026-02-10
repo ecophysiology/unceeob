@@ -34,7 +34,6 @@
 
   <main class="container">
 
-    <!-- FLOW CHART -->
     <section class="card">
       <h2>Course Flow Chart</h2>
       <p class="note">
@@ -45,51 +44,72 @@
         <div class="mermaid">
 flowchart TD
 
+%% ---------------- Core pathway ----------------
 A["Gateway<br/><b>BIOL 101 &amp; 101L</b><br/>Principles of Biology + Intro Lab"]
-
 B["Fundamentals Core<br/><b>BIOL 103</b> How Cells Function<br/><b>BIOL 104</b> Biodiversity<br/><b>BIOL 105L</b> Biological Research Skills"]
-
 C["Intermediate EEOB Core (choose 2)<br/><b>BIOL 250</b> Evolutionary Biology<br/><b>BIOL 260</b> Introduction to Ecology<br/><b>+ Organismal Structure &amp; Diversity course</b>"]
-
 D["Upper-level coursework<br/><b>4 electives &gt; 200</b><br/><span class='tiny'>At least 2 with labs</span>"]
+E0["Upper-level Electives and Organismal Structure and Diversity Courses"]
 
-E["Upper-level Electives and Organismal Structure and Diversity Courses"]
+A --> B --> C --> D --> E0
 
-A --> B --> C --> D --> E
+%% ---------------- Electives grid (3 columns, NO visible connectors) ----------------
+%% Single arrow from E0 into the grid (to top-left box)
+E0 --> R1C1
 
+%% Define electives as a 3-column grid
+%% Row 1
+R1C1["<b>BIOL 214H</b><br/>Mathematics of Evolutionary Processes"]
+R1C2["<b>BIOL 255H</b><br/>Evolution of Extraordinary Adaptations"]
+R1C3["<b>BIOL 405</b><br/>Good Genes"]
+
+%% Row 2
+R2C1["<b>BIOL 422</b><br/>Microbiology"]
+R2C2["<b>BIOL 446</b><br/>Environmental Microbiology"]
+R2C3["<b>BIOL 451</b><br/>Ecological &amp; Evolutionary Developmental Biology"]
+
+%% Row 3
+R3C1["<b>BIOL 454</b><br/>Evolutionary Genetics"]
+R3C2["<b>BIOL 464</b><br/>Global Change Biology"]
+R3C3["<b>BIOL 465</b><br/>Population Ecology"]
+
+%% Row 4
+R4C1["<b>BIOL 471</b><br/>Evolutionary Processes"]
+R4C2["<b>BIOL 476</b><br/>Global Biodiversity and Macroecology"]
+R4C3["<b>BIOL 490</b><br/>Disease Ecology"]
+
+%% Row 5
+R5C1["<b>BIOL 514H</b><br/>Comparative Physiology"]
+R5C2["<b>BIOL 553</b><br/>Mathematical Biology"]
+R5C3["<b>BIOL 564</b><br/>Avian Biology"]
+
+%% --- Layout helper links (invisible) ---
+%% These links exist ONLY to force grid layout; we hide them via linkStyle default below.
+R1C1 --- R1C2 --- R1C3
+R2C1 --- R2C2 --- R2C3
+R3C1 --- R3C2 --- R3C3
+R4C1 --- R4C2 --- R4C3
+R5C1 --- R5C2 --- R5C3
+
+R1C1 --- R2C1 --- R3C1 --- R4C1 --- R5C1
+R1C2 --- R2C2 --- R3C2 --- R4C2 --- R5C2
+R1C3 --- R2C3 --- R3C3 --- R4C3 --- R5C3
+
+%% ---------------- Styling ----------------
 classDef box fill:#ffffff,stroke:#111,stroke-width:1px,rx:12,ry:12;
-class A,B,C,D,E box;
+class A,B,C,D,E0,R1C1,R1C2,R1C3,R2C1,R2C2,R2C3,R3C1,R3C2,R3C3,R4C1,R4C2,R4C3,R5C1,R5C2,R5C3 box;
+
+%% Hide ALL links by default (including the grid helper links)
+linkStyle default stroke:transparent,stroke-width:0px;
+
+%% Re-enable ONLY the real pathway links + the single arrow into the electives grid
+%% (These are the first 5 links created in the order they appear above.)
+linkStyle 0 stroke:#111,stroke-width:1px;
+linkStyle 1 stroke:#111,stroke-width:1px;
+linkStyle 2 stroke:#111,stroke-width:1px;
+linkStyle 3 stroke:#111,stroke-width:1px;
+linkStyle 4 stroke:#111,stroke-width:1px;
         </div>
-      </div>
-    </section>
-
-    <!-- ELECTIVES GRID -->
-    <section class="card">
-      <h2>Upper-level Electives and Organismal Structure and Diversity Courses</h2>
-      <p class="note">
-        Courses below are examples; they are not sequential and may be taken in many orders.
-      </p>
-
-      <div class="course-grid">
-        <div class="course-box"><b>BIOL 214H</b><br/>Mathematics of Evolutionary Processes</div>
-        <div class="course-box"><b>BIOL 255H</b><br/>Evolution of Extraordinary Adaptations</div>
-        <div class="course-box"><b>BIOL 405</b><br/>Good Genes</div>
-
-        <div class="course-box"><b>BIOL 422</b><br/>Microbiology</div>
-        <div class="course-box"><b>BIOL 446</b><br/>Environmental Microbiology</div>
-        <div class="course-box"><b>BIOL 451</b><br/>Ecological &amp; Evolutionary Developmental Biology</div>
-
-        <div class="course-box"><b>BIOL 454</b><br/>Evolutionary Genetics</div>
-        <div class="course-box"><b>BIOL 464</b><br/>Global Change Biology</div>
-        <div class="course-box"><b>BIOL 465</b><br/>Population Ecology</div>
-
-        <div class="course-box"><b>BIOL 471</b><br/>Evolutionary Processes</div>
-        <div class="course-box"><b>BIOL 476</b><br/>Global Biodiversity and Macroecology</div>
-        <div class="course-box"><b>BIOL 490</b><br/>Disease Ecology</div>
-
-        <div class="course-box"><b>BIOL 514H</b><br/>Comparative Physiology</div>
-        <div class="course-box"><b>BIOL 553</b><br/>Mathematical Biology</div>
-        <div class="course-box"><b>BIOL 564</b><br/>Avian Biology</div>
       </div>
     </section>
 
