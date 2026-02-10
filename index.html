@@ -6,13 +6,18 @@
   <title>EEOB Course Pathway</title>
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Mermaid for flowcharts -->
+  <!-- Mermaid -->
   <script type="module">
     import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
     mermaid.initialize({
       startOnLoad: true,
       theme: "neutral",
-      flowchart: { curve: "basis", htmlLabels: true }
+      flowchart: {
+        curve: "basis",
+        htmlLabels: true,
+        nodeSpacing: 50,
+        rankSpacing: 70
+      }
     });
   </script>
 </head>
@@ -22,7 +27,7 @@
     <div class="container">
       <h1>EEOB Course Pathway</h1>
       <p class="subhead">
-        Gateway → Fundamentals → EEOB intermediate core → upper-level EEOB-focused courses.
+        Example progression emphasizing ecology, evolution, and organismal biology.
       </p>
     </div>
   </header>
@@ -31,69 +36,84 @@
 
     <section class="card">
       <h2>Course Flow Chart</h2>
-      <p class="note">Example pathway; students should confirm the latest requirements with advising.</p>
+      <p class="note">
+        This diagram shows one possible pathway. Students should confirm current requirements with advising.
+      </p>
 
       <div class="chart-wrap">
         <div class="mermaid">
 flowchart TD
 
-%% ----- Core pathway -----
-A["Gateway<br/><b>BIOL 101 &amp; 101L</b><br/>Principles of Biology + Intro Lab<br/><span class='tiny'>4 credits</span>"]
+%% ---------------- Core pathway ----------------
+A["Gateway<br/><b>BIOL 101 &amp; 101L</b><br/>Principles of Biology + Intro Lab"]
 
-B["Fundamentals Core<br/><b>BIOL 103</b> How Cells Function (3)<br/><b>BIOL 104</b> Biodiversity (3)<br/><b>BIOL 105L</b> Biological Research Skills (3)"]
+B["Fundamentals Core<br/><b>BIOL 103</b> How Cells Function<br/><b>BIOL 104</b> Biodiversity<br/><b>BIOL 105L</b> Biological Research Skills"]
 
-C["Intermediate EEOB Core (choose 2)<br/><b>BIOL 250</b> Evolutionary Biology<br/><b>BIOL 260</b> Introduction to Ecology<br/><b>+ 1 Organismal Structure &amp; Diversity course</b>"]
+C["Intermediate EEOB Core (choose 2)<br/><b>BIOL 250</b> Evolutionary Biology<br/><b>BIOL 260</b> Introduction to Ecology<br/><b>+ Organismal Structure &amp; Diversity course</b>"]
 
-D["Upper-level coursework<br/><b>4 electives &gt; 200</b><br/><span class='tiny'>At least 2 courses with labs (not BIOL 101L/105L)</span>"]
+D["Upper-level coursework<br/><b>4 electives &gt; 200</b><br/><span class='tiny'>At least 2 with labs</span>"]
 
 A --> B --> C --> D
 
-%% ----- Electives / organismal-diversity examples (as squares) -----
+%% ---------------- Electives header ----------------
+E0["Upper-level Electives and Organismal Structure and Diversity Courses"]
+
 D --> E0
 
-E0["Upper-level Electives and Organismal Structure and Diversity Courses<br/><span class='tiny'>examples from our offerings</span>"]
+%% ---------------- Electives grid ----------------
+E0 --> X[" "]:::invis
 
-%% Make electives fan out from E0
-E0 --> E214H["<b>BIOL 214H</b><br/>Mathematics of Evolutionary Processes"]
-E0 --> E255H["<b>BIOL 255H</b><br/>Evolution of Extraordinary Adaptations"]
-E0 --> E250["<b>BIOL 250</b><br/>Evolutionary Biology"]
-E0 --> E260["<b>BIOL 260</b><br/>Ecology"]
+subgraph GRID[" "]
+direction TB
 
-E0 --> E405["<b>BIOL 405</b><br/>Good Genes"]
-E0 --> E422["<b>BIOL 422</b><br/>Microbiology"]
-E0 --> E446["<b>BIOL 446</b><br/>Environmental Microbiology"]
-E0 --> E451["<b>BIOL 451</b><br/>Ecological &amp; Evolutionary Developmental Biology"]
-E0 --> E454["<b>BIOL 454</b><br/>Evolutionary Genetics"]
-E0 --> E464["<b>BIOL 464</b><br/>Global Change Biology"]
-E0 --> E465["<b>BIOL 465</b><br/>Population Ecology"]
-E0 --> E471["<b>BIOL 471</b><br/>Evolutionary Processes"]
-E0 --> E476["<b>BIOL 476</b><br/>Global Biodiversity and Macroecology"]
-E0 --> E490["<b>BIOL 490</b><br/>Disease Ecology"]
-E0 --> E514H["<b>BIOL 514H</b><br/>Comparative Physiology"]
-E0 --> E553["<b>BIOL 553</b><br/>Mathematical Biology"]
-E0 --> E564["<b>BIOL 564</b><br/>Avian Biology"]
+R1C1["<b>BIOL 214H</b><br/>Mathematics of Evolutionary Processes"]
+R1C2["<b>BIOL 255H</b><br/>Evolution of Extraordinary Adaptations"]
+R1C3["<b>BIOL 405</b><br/>Good Genes"]
 
-%% ----- Styling -----
+R2C1["<b>BIOL 422</b><br/>Microbiology"]
+R2C2["<b>BIOL 446</b><br/>Environmental Microbiology"]
+R2C3["<b>BIOL 451</b><br/>Ecological &amp; Evolutionary Developmental Biology"]
+
+R3C1["<b>BIOL 454</b><br/>Evolutionary Genetics"]
+R3C2["<b>BIOL 464</b><br/>Global Change Biology"]
+R3C3["<b>BIOL 465</b><br/>Population Ecology"]
+
+R4C1["<b>BIOL 471</b><br/>Evolutionary Processes"]
+R4C2["<b>BIOL 476</b><br/>Global Biodiversity and Macroecology"]
+R4C3["<b>BIOL 490</b><br/>Disease Ecology"]
+
+R5C1["<b>BIOL 514H</b><br/>Comparative Physiology"]
+R5C2["<b>BIOL 553</b><br/>Mathematical Biology"]
+R5C3["<b>BIOL 564</b><br/>Avian Biology"]
+
+end
+
+%% Anchor into grid
+X --> R1C1
+
+%% Invisible grid structure
+R1C1 --- R1C2 --- R1C3
+R2C1 --- R2C2 --- R2C3
+R3C1 --- R3C2 --- R3C3
+R4C1 --- R4C2 --- R4C3
+R5C1 --- R5C2 --- R5C3
+
+R1C1 --- R2C1 --- R3C1 --- R4C1 --- R5C1
+R1C2 --- R2C2 --- R3C2 --- R4C2 --- R5C2
+R1C3 --- R2C3 --- R3C3 --- R4C3 --- R5C3
+
+%% Styling
 classDef box fill:#ffffff,stroke:#111,stroke-width:1px,rx:12,ry:12;
-class A,B,C,D,E0,E214H,E255H,E250,E260,E405,E422,E446,E451,E454,E464,E465,E471,E476,E490,E514H,E553,E564 box;
+classDef invis fill:transparent,stroke:transparent,color:transparent;
+
+class A,B,C,D,E0,R1C1,R1C2,R1C3,R2C1,R2C2,R2C3,R3C1,R3C2,R3C3,R4C1,R4C2,R4C3,R5C1,R5C2,R5C3 box;
+class X invis;
         </div>
       </div>
     </section>
 
-    <section class="card">
-      <h2>Notes on Requirements (from the text you provided)</h2>
-      <ul class="list">
-        <li>Gateway: <b>BIOL 101 &amp; 101L</b></li>
-        <li>Fundamentals core: <b>BIOL 103, 104, 105L</b></li>
-        <li>Intermediate EEOB core: <b>choose 2</b> from <b>BIOL 250</b> and <b>BIOL 260</b> + organismal structure/diversity course</li>
-        <li>Plus: <b>4 electives &gt; 200</b> (with exclusions per catalog) and <b>at least 2 lab courses</b> in the major</li>
-      </ul>
-    </section>
-
     <footer class="footer">
-      <p class="tiny">
-        Last updated: <span id="lastUpdated"></span>
-      </p>
+      <p class="tiny">Last updated: <span id="lastUpdated"></span></p>
     </footer>
 
   </main>
