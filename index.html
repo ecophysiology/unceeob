@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biology Course Pathway</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Mermaid for flowcharts -->
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: "neutral",
+      flowchart: { curve: "basis", htmlLabels: true }
+    });
+  </script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Biology Major Course Pathway</h1>
+      <p class="subhead">
+        Example flow of gateway → core → intermediate → electives (with examples from our offerings).
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Course Flow Chart</h2>
+      <p class="note">This is an example pathway; students should confirm the latest requirements with advising.</p>
+
+      <div class="mermaid">
+flowchart TD
+
+%% ----- Nodes -----
+A["Gateway<br/><b>BIOL 101 &amp; 101L</b><br/>Principles of Biology + Intro Lab<br/><span class='tiny'>4 credits</span>"]
+
+B["Fundamentals Core<br/><b>BIOL 103</b> How Cells Function (3)<br/><b>BIOL 104</b> Biodiversity (3)<br/><b>BIOL 105L</b> Biological Research Skills (3)"]
+
+C["Intermediate Core (choose 2)<br/><b>BIOL 220</b> Molecular Genetics (H)<br/><b>BIOL 240</b> Cell Biology (H)<br/><b>BIOL 250</b> Evolutionary Biology<br/><b>BIOL 260</b> Introduction to Ecology<br/><b>+ 1 Organismal Structure &amp; Diversity course</b>"]
+
+D["Upper-Level Biology Electives<br/><b>4 electives &gt; 200</b><br/><span class='tiny'>At least 2 courses with labs (not BIOL 101L/105L)</span>"]
+
+%% ----- Edges -----
+A --> B --> C --> D
+
+%% ----- Styling -----
+classDef gateway fill:#ffffff,stroke:#111,stroke-width:1px,rx:12,ry:12;
+classDef core fill:#ffffff,stroke:#111,stroke-width:1px,rx:12,ry:12;
+classDef inter fill:#ffffff,stroke:#111,stroke-width:1px,rx:12,ry:12;
+classDef elect fill:#ffffff,stroke:#111,stroke-width:1px,rx:12,ry:12;
+
+class A gateway;
+class B core;
+class C inter;
+class D elect;
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Intermediate Core Options (from your list)</h2>
+        <ul class="list">
+          <li><b>BIOL 250</b> — Evolutionary Biology</li>
+          <li><b>BIOL 260</b> — Introduction to Ecology</li>
+          <li><b>BIOL 220 (H)</b> — Molecular Genetics</li>
+          <li><b>BIOL 240 (H)</b> — Cell Biology</li>
+          <li><b>Organismal Structure &amp; Diversity</b> — (choose from department list)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Examples of Upper-Level Electives Offered</h2>
+        <p class="note">These are examples; they can populate the “4 electives” requirement.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Title</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><b>BIOL 214H</b></td><td>Mathematics of Evolutionary Processes</td></tr>
+              <tr><td><b>BIOL 255H</b></td><td>Evolution of Extraordinary Adaptations</td></tr>
+              <tr><td><b>BIOL 405</b></td><td>Good Genes</td></tr>
+              <tr><td><b>BIOL 422</b></td><td>Microbiology</td></tr>
+              <tr><td><b>BIOL 446</b></td><td>Environmental Microbiology</td></tr>
+              <tr><td><b>BIOL 451</b></td><td>Ecological &amp; Evolutionary Developmental Biology</td></tr>
+              <tr><td><b>BIOL 454</b></td><td>Evolutionary Genetics</td></tr>
+              <tr><td><b>BIOL 464</b></td><td>Global Change Biology</td></tr>
+              <tr><td><b>BIOL 465</b></td><td>Population Ecology</td></tr>
+              <tr><td><b>BIOL 471</b></td><td>Evolutionary Processes</td></tr>
+              <tr><td><b>BIOL 476</b></td><td>Global Biodiversity and Macroecology</td></tr>
+              <tr><td><b>BIOL 490</b></td><td>Disease Ecology</td></tr>
+              <tr><td><b>BIOL 514H</b></td><td>Comparative Physiology</td></tr>
+              <tr><td><b>BIOL 553</b></td><td>Mathematical Biology</td></tr>
+              <tr><td><b>BIOL 564</b></td><td>Avian Biology</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Notes on Requirements (from the text you provided)</h2>
+      <ul class="list">
+        <li>Gateway: <b>BIOL 101 &amp; 101L</b></li>
+        <li>Fundamentals core: <b>BIOL 103, 104, 105L</b></li>
+        <li>Intermediate core: <b>choose 2</b> from 220/240/250/260 + organismal structure/diversity course</li>
+        <li>Plus: <b>4 electives &gt; 200</b> (with exclusions per catalog) and <b>at least 2 lab courses</b> in the major</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p class="tiny">
+        Last updated: <span id="lastUpdated"></span>
+      </p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
